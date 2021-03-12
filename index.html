@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria</title>
+
+    <!--recursos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,16 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.html">Mascotas</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Mascotas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/veteniarios.html">Veterinarios</a>
+                        <a class="nav-link" href="veterinarias.html">Veterinarias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/consultas.html">Consultas</a>
+                        <a class="nav-link" href="consultas.html">Consultas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/duenos.html">Dueños</a>
+                        <a class="nav-link" href="duenos.html">Dueños</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -39,6 +44,7 @@
     </nav>
 
     <div class="container"> <!-- El contenido va aqui -->
+        <h1>Mascotas</h1>
         <div class="actions-menu">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -48,58 +54,25 @@
         <table class="table">
             <thead class="table-dark">
                 <th>#</th>
-                <th>First</th>
-                <th>Last</th>
-                <th>Handle</th>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Dueño</th>
                 <th>Actions</th>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="lista-mascotas">
+               <!--  <tr>
                     <td>1</td>
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-danger">Eliminar</button>
-                            <button type="button" class="btn btn-primary">Editar</button>
+                            <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
+                </tr> -->
+               
                 </tr>
             </tbody>
         </table>
@@ -113,43 +86,47 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id= "form">
+                    <input type="hidden" id="indice">
                     <fieldset>
-                        <legend>Nueva mascota</legend>
-                        <div class="mb-3">
-                            <label for="disabledSelect" class="form-label">Tipo de animal</label>
-                            <select id="disabledSelect" class="form-select">
-                                <option>Seleccionar:</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+<!--                         <legend>Nueva mascota</legend>
+ -->                        <div class="mb-3">
+<!--                             <label for="disabledSelect" class="form-label">Tipo de animal</label>
+ -->                            <select id="tipo" class="form-select" placeholder='Tipo de animal'>
+                                <option>Tipo de animal</option>
+                                <option>Perro</option>
+                                <option>Gato</option>
+                                <option>Pajaro</option>
+                                <option>Pez</option>
+                                <option>Otro</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">Disabled input</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                             <input type="text" id="nombre" class="form-control" placeholder="Nombre">
                         </div>
                         <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck">
-                                <label class="form-check-label" for="disabledFieldsetCheck">
-                                Can't check this
-                                </label>
-                            </div>
+                           <select id="dueno" class="form-select" placeholder='Dueño'>
+                                <option>Dueño</option>
+                                <option>Esteban</option>
+                                <option>Julian</option>
+                                <option>Jhon</option>
+                                <option>Felix</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                     </fieldset>
                 </form>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cerrar">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btn-guardar">Crear</button>
             </div>
         </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='js/all.js'></script>
+    <script type="text/javascript" src='js/Mascotas.js'></script>
 </body>
 </html>
