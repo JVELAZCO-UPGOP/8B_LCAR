@@ -44,19 +44,24 @@
     </nav>
 
     <div class="container"> <!-- El contenido va aqui -->
-        <h1>Veterinarias</h1>
         <div class="actions-menu">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Nueva
-            </button>
+            <h1>Veterinarias</h1>
+            <div class="actions-menu-content">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Nueva
+                </button>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Opps!</strong> Algo hicimos mal, vuelve a intentarlo.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
         </div>
         <table class="table">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Identificación</th>
-                    <th scope="col">País</th>
+                    <th scope="col">Documento</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col"></th>
@@ -79,18 +84,7 @@
                     <input type="hidden" id="indice">
                     <fieldset>
                         <div class="mb-3">
-                            <select id="pais" class="form-select" placeholder='País'>
-                                <option selected>Seleccionar...</option>
-                                <option>Bolivia</option>
-                                <option>Chile</option>
-                                <option>Colombia</option>
-                                <option>Ecuador</option>
-                                <option>Perú</option>
-                                <option>Venezuela</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" id="identificacion" name="identificacion" class="form-control" placeholder="Identificación">
+                            <input type="text" id="documento" name="documento" class="form-control" placeholder="Documento">
                         </div>
                         <div class="mb-3">
                             <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
