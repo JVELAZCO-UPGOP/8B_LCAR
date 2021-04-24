@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .bg-azul {
+            background-color:blue;
+        }
+        .letra-blanca {
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const app = document.getElementById('app');
+        const button = document.createElement('button');
+        button.innerText = 'Hola soy un button';
+        // div.style.color = '#C0C0C0';
+        button.className = 'bg-azul letra-blanca';
+        button.onclick = () => alert('soy un boton cliqueado');
+        // document.body.appendChild(div);
+        app.appendChild(button);
+    </script>
+</body>
+</html>
