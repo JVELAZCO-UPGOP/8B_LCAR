@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from './componentes/Nav/index';
 import ActionsMenu from './componentes/ActionsMenu/index';
 import Tabla from './componentes/Tabla/index';
 import Modal from './componentes/Modal/index';
@@ -74,15 +73,12 @@ this.listar();
         const { titulo = 'Pagina sin titulo' } = this.props;
         return(
             <>
-            <Nav/>
-            <div className="container">
-                <ActionsMenu cambiaModal = {this.cambiaModal} titulo = {titulo}/>
-                <Tabla 
-                    entidades = {this.state.entidades} 
-                    editarEntidad={this.editarEntidad}
-                    eliminarEntidad = {this.eliminarEntidad}
-                />
-            </div>
+            <ActionsMenu cambiaModal = {this.cambiaModal} titulo = {titulo}/>
+            <Tabla 
+                entidades = {this.state.entidades} 
+                editarEntidad={this.editarEntidad}
+                eliminarEntidad = {this.eliminarEntidad}
+            />
             {this.state.mostrarModal && 
                 <Modal 
                     cambiaModal = {this.cambiaModal} 
