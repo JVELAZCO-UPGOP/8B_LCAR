@@ -19,13 +19,13 @@
 }
 
 .btn-info {
-    color: #fff;
-    background-color: #17a2b8;
-    border-color: #17a2b8;
+    color: #fff!important;
+    background-color: #17a2b8!important;
+    border-color: #17a2b8!important;
 }
 
 .btn-danger {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    color: #fff!important;
+    background-color: #dc3545!important;
+    border-color: #dc3545!important;
 }

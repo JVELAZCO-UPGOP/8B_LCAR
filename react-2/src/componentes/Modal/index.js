@@ -19,7 +19,7 @@ const duenos = [
     { valor: 'Laura', etiqueta: 'Laura'},
 ];
 
-function Modal({cambiaModal = () => {} }){
+function Modal({cambiaModal = () => {}, manejarInput = () => {}, crearEntidad = () => {}, objeto = {} }){
     return (
         <>
         <div className="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -31,18 +31,36 @@ function Modal({cambiaModal = () => {} }){
                             <input type="hidden" id="indice" />
                             <fieldset>
                                 <div className="mb-3">
-                                    <Select options={tiposMascota} nombreCampo = "tipo animal" />
+                                    <Select 
+                                        nombreCampo="tipo" 
+                                        onChange={manejarInput} 
+                                        options={tiposMascota} 
+                                        placeholder = "Tipo animal" 
+                                        value={objeto.tipo}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <Input tipo="text" nombreCampo="nombre"/>
+                                    <Input 
+                                        nombreCampo="nombre" 
+                                        onInput={manejarInput} 
+                                        tipo="text" 
+                                        placeholder="nombre"
+                                        value={objeto.nombre}
+                                    />
                                 </div>
                                 <div className="mb-3">
-                                    <Select options = {duenos} nombreCampo = "dueño" />
+                                    <Select 
+                                        nombreCampo="dueno"
+                                        onChange={manejarInput} 
+                                        options = {duenos} 
+                                        placeholder = "Dueño" 
+                                        value={objeto.dueno}
+                                    />
                                 </div>
                             </fieldset>
                         </form>
                     </div>
-                    <ModalFooter cambiaModal = {cambiaModal} />
+                    <ModalFooter cambiaModal = {cambiaModal} crearEntidad={crearEntidad}/>
                 </div>
             </div>
         </div>

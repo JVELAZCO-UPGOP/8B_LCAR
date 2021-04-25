@@ -1,17 +1,17 @@
 import React from 'react';
 import BotonAccion from '../BotonAccion/index';
 
-function Fila({ mascota, index}){
+function Fila({ entidad, index, editarEntidad=()=>{}, eliminarEntidad = () => {} }){
     return(
         <tr>
             <td>{index}</td>
-            <td>{mascota.tipo}</td>
-            <td>{mascota.nombre}</td>
-            <td>{mascota.dueno}</td>
+            <td>{entidad.tipo}</td>
+            <td>{entidad.nombre}</td>
+            <td>{entidad.dueno}</td>
             <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <BotonAccion tipo="editar"/>
-                    <BotonAccion tipo="eliminar"/>
+                <div className="btn-group" role="group" aria-label="Basic example">
+                    <BotonAccion tipo="editar" onClick={editarEntidad} index={index}/>
+                    <BotonAccion tipo="eliminar" onClick={(e) => eliminarEntidad(e, index)}/>
                 </div>
             </td>
         </tr>

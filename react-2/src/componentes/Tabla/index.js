@@ -4,28 +4,21 @@ import Fila from './Fila';
 import './Tabla.css';
 
 
-function Tabla(){
-    const [mascotas, setMascotas] = useState([
-        {
-            tipo: "Gato",
-            nombre: "manchas",
-            dueno: "Laura",
-        },
-        {
-            tipo: "Gato",
-            nombre: "manchas",
-            dueno: "Laura",
-        }
-    ])
-    const columnas = mascotas.length > 0 ? Object.keys(mascotas[0]) : [];
+function Tabla({ entidades = [], editarEntidad = () => {}, eliminarEntidad = () => {} }){
+    const columnas = entidades.length > 0 ? Object.keys(entidades[0]) : [];
     return (
         <table className="table">
             <Encabezado columnas = {columnas} />
             <tbody id="lista-mascotas">
-                {" "}
-                {mascotas.map(
-                    (mascota,index) =>
-                    <Fila mascota={mascota} index={index}/>
+                {entidades.map(
+                    (entidad,index) =>
+                    <Fila 
+                        key={`Fila-${index}`}
+                        entidad={entidad} 
+                        index={index}
+                        editarEntidad={editarEntidad}
+                        eliminarEntidad={eliminarEntidad}
+                    />
                 )}
             </tbody>
         </table>
