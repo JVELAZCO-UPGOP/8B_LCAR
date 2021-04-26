@@ -18,7 +18,7 @@ export const crearEditarEntidad = async ({
 }) => {
   try {
     let url = null;
-    if (method === "PUT" && idObjeto || idObjeto === 0) {
+    if (method === "PUT" && (idObjeto || idObjeto === 0)) {
       url = `${API_URL}/${entidad}/${idObjeto}`;
     } else if (method === "POST") {
       url = `${API_URL}/${entidad}`;
@@ -41,13 +41,22 @@ export const crearEditarEntidad = async ({
 
 export const eliminarEntidad = async ({ entidad = "mascotas", idObjeto = null }) => {
   try {
-    debugger;
     if(idObjeto || idObjeto === 0) {
       const respuesta = await fetch(`${API_URL}/${entidad}/${idObjeto}`, {method: 'DELETE'});
       const datos = await respuesta.json();
       return datos;
     };
     throw new Error('idObjet no puede estar vacio')
+  } catch (error) {
+    console.log({ error });
+  }
+};
+
+export const obtenerUno = async ({ entidad = "mascotas", idObjeto = null }) => {
+  try {
+    const respuesta = await fetch(`${API_URL}/${entidad}/${idObjeto}`);
+    const datos = await respuesta.json();
+    return datos;
   } catch (error) {
     console.log({ error });
   }

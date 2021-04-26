@@ -1,7 +1,7 @@
 import React from 'react'
 import './Select.css'
 
-function Select({ options = [], nombreCampo = 'vacio', onChange = () => {}, placeholder, value = "" }){
+function Select({ options = [], nombreCampo = 'vacio', onChange = () => {}, placeholder, value = "" }) {
     return (
         <select id={nombreCampo} className="form-select" onChange={onChange} name={nombreCampo} defaultValue={value}>
             <option value="">Seleccionar {placeholder}</option>

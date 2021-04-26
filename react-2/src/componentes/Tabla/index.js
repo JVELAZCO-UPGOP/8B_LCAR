@@ -4,22 +4,22 @@ import Fila from './Fila';
 import './Tabla.css';
 
 
-function Tabla({ entidades = [], editarEntidad = () => {}, eliminarEntidad = () => {} }){
-    const columnas = entidades.length > 0 ? Object.keys(entidades[0]) : [];
+function Tabla({ entidades = [], editarEntidad = () => {}, eliminarEntidad = () => {}, columnas = [], }){
     return (
         <table className="table">
             <Encabezado columnas = {columnas} />
             <tbody id="lista-mascotas">
                 {entidades.map(
-                    (entidad,index) =>
+                    (entidad,index) => (
                     <Fila 
-                        key={`Fila-${index}`}
-                        entidad={entidad} 
+                        key={`fila-${index}`}
                         index={index}
+                        entidad={entidad} 
                         editarEntidad={editarEntidad}
                         eliminarEntidad={eliminarEntidad}
+                        columnas={columnas}
                     />
-                )}
+                ))}
             </tbody>
         </table>
     )
